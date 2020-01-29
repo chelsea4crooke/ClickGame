@@ -1,15 +1,15 @@
 
-.App-header {
+.turtle-header {
   background-color: #222;
   height: 80px;
   padding: 10px;
   color: white;
 }
 
-.App-title {
+.turtle-title {
   font-size: 2em;
 }
 
-.App-intro {
+.turtle-intro {
   font-size: large;
 }
