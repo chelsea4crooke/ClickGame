@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import Card from "./components/Card";
 import Wrapper from "./components/Wrapper";
 import Score from "./components/Score";
-import kittens from "./cards.json";
+import turtles from "./cards.json";
 import "./App.css";
 
 class App extends Component {
   // Setting this.state kittens to the cards json array
   state = {
-   kittens,
-    clickedKittenIds: [],
+   turtles,
+    clickedTurtleIds: [],
     score: 0,
     goal: 8,
     status: ""
@@ -17,25 +17,25 @@ class App extends Component {
 
   //shuffle the kitten cards in the browser when clicked
   shuffleScoreCard = id => {
-    let clickedKittenIds = this.state.clickedKittenIds;
+    let clickedTurtleIds = this.state.clickedTurtleIds;
 
-    if(clickedKittenIds.includes(id)){
-      this.setState({ clickedKittenIds: [], score: 0, status:  "Game Over! You lost. Click to play again!" });
+    if(clickedTurtleIds.includes(id)){
+      this.setState({ clickedTurtleIds: [], score: 0, status:  "Game Over! You lost. Click to play again!" });
       return;
     }else{
-      clickedKittenIds.push(id)
+      clickedTurtleIds.push(id)
 
-      if(clickedKittenIds.length === 8){
-        this.setState({score: 8, status: "You Won! Great Job, Smartie! Click to play again!", clickedKittenIds: []});
+      if(clickedTurtleIds.length === 8){
+        this.setState({score: 8, status: "You Won! Great Job, Smartie! Click to play again!", clickedTurtleIds: []});
         console.log('You Win');
         return;
       }
 
-      this.setState({ kittens, clickedKittenIds, score: clickedKittenIds.length, status: " " });
+      this.setState({ turtles, clickedTurtleIds, score: clickedTurtleIds.length, status: " " });
 
-      for (let i = kittens.length - 1; i > 0; i--) {
+      for (let i = turtles.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
-         [kittens[i], kittens[j]] =  [kittens[j], kittens[i]];
+         [turtles[i], turtles[j]] =  [turtles[j], turtles[i]];
       }
     }
   }
@@ -55,17 +55,17 @@ class App extends Component {
                status={this.state.status}
                />
         <Wrapper>
-          {this.state.kittens.map(kitten => (
+          {this.state.turtles.map(turtles => (
             <Card
               shuffleScoreCard={this.shuffleScoreCard}
-              id={kitten.id}
-              key={kitten.id}
-              image={kitten.image}
+              id={turtles.id}
+              key={turtles.id}
+              image={turtles.image}
             />
           ))}
         </Wrapper>
         <footer>
-          <p>Designed and built by Miranda Jaroneski. You can find the
+          <p>Designed and built by Chelsea Crooke. You can find the
           code<a href="https://chelsea4crooke.github.io/ClickGame/." target="_blank" rel="noopener noreferrer"> here</a>.</p>
         </footer>
     </div>
