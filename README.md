@@ -29,3 +29,4 @@ https://chelsea4crooke.github.io/ClickGame/
 8. Paths
 
 ##### ***Command Executions***
+Npm start
